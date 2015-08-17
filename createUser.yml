@@ -1,0 +1,7 @@
+# playbook to create new user in all configure hosts
+
+
+- hosts: ansible.webserver1.org
+  tasks:
+     - name: add a new user
+       command: adduser mohitm
