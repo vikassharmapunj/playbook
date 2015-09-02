@@ -1,0 +1,19 @@
+#--- Fetch command result
+- hosts: ppi
+  tasks:
+    - name: run date command
+      command: /bin/date
+      register: vardate
+    - debug: var=vardate.stdout_lines
+- hosts: ppi
+  tasks:
+    - name: run /etc/hosts command
+      command: /bin/cat /etc/hosts
+      register: vardate
+    - debug: var=vardate.stdout_lines
+- hosts: ppi
+  tasks:
+    - name: run /etc/hosts command
+      command: /bin/cat /etc/sysctl.conf
+      register: vardate
+    - debug: var=vardate.stdout_lines
