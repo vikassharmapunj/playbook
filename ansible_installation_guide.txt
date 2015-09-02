@@ -1,0 +1,40 @@
+Step #1: Add the EPEL Repository
+Ansible is part of Extra Packages for Enterprise Linux (EPEL), which is a community repository of non-standard packages for the RHEL distribution. First, we’ll install the EPEL repository:
+
+sudo rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+
+Step #2: The Installation
+As a matter of best practice we’ll update our packages:
+
+sudo yum -y update
+
+Then let’s install Ansible and any required packages:
+
+sudo yum -y install ansible
+
+Step #3: Verify The Installation
+Check the version of Ansible that is installed:
+
+ansible --version
+
+
+To add host in ansible server :-
+We can add host by two ways. One way is to use same private key (.pem file) generated from interface to login to server.
+Another is to generate different key for server to server communication.
+
+For using different key follow below steps:-
+
+(i)	ssh-keygen -t rsa -b 4096
+    one public key is generated along with rsa key.
+(ii) Copy these files to /home/user/.ssh/ on  both server and host.
+
+Important note :- File permissions should be appropriate otherwise khajjal ho jayoge.
+
+give permission as chmod 600 key.pem
+
+(iii) ansible all -m ping
+Output:- 172.31.47.186 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+(iv) to configure  hosts make entry in /etc/hosts of both server and host as well as in /etc/ansible/hosts on server.
