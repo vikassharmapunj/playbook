@@ -1,0 +1,9 @@
+- hosts: "IP"
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: Copy RPM Install
+     copy: src=glances-1.7.7-1.el7.noarch.rpm dest=/path/
+   - name: Execute RPM
+     command: rpm -ivh /path/glances-1.7.7-1.el7.noarch.rpm
+     sudo: yes
