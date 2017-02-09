@@ -1,0 +1,12 @@
+- hosts: "IP A"
+  sudo: true
+  connection: ssh
+  user: ansi
+  tasks: 
+    - 
+      delegate_to: "IP B"
+      name: "copy file from IP A to IP B"
+      synchronize: 
+        dest: /path/on/IP A
+        mode: pull
+        src: /path/on/IP B
