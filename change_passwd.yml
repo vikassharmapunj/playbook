@@ -1,0 +1,10 @@
+- hosts: all
+  vars_files:
+    - passwd.yml
+    
+  sudo: yes
+  tasks:
+
+      - name: Change user ansi without admin access
+        user: name=user password={{ item |password_hash('sha512') }}
+        with_items: "{{passwd}}"
