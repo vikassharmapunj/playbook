@@ -1,0 +1,7 @@
+- name: Run Command
+  tasks:
+  - shell: useradd mohitm
+    register: iscsiid
+    become: yes
+  - debug:
+      msg: "{{ iscsiid }}"
