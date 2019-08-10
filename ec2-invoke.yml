@@ -20,8 +20,8 @@
   tasks:
     - name: Create security group
       ec2_group:
-         aws_access_key: AKIAIN363MYRALA35ONA
-         aws_secret_key: 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
+         aws_access_key: <>
+         aws_secret_key: <>
          name: "mm"
          description: "security group"
          vpc_id: "{{ vpc_id }}"
@@ -34,8 +34,8 @@
 #
     - name: Create an EC2 key
       ec2_key:
-         aws_access_key: AKIAIN363MYRALA35ONA 
-         aws_secret_key: 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
+         aws_access_key: <>
+         aws_secret_key: <>
          name: "test machine"
          region: "{{ region }}"
          register: ec2_key
@@ -44,8 +44,8 @@
       when: ec2_key.changed
     - name: Create an ec2 instance
       ec2:
-         aws_access_key: AKIAIN363MYRALA35ONA
-         aws_secret_key: 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
+         aws_access_key: <>
+         aws_secret_key: <>
          key_name: mm
          group: mm # security group name
          instance_type: "{{ instance_type }}"
