@@ -1,0 +1,10 @@
+- hosts: 10.247.74.37
+  vars_files:
+    - passwd.yml
+    
+  sudo: yes
+  tasks:
+
+      - name: Change user ansi without admin access
+        user: name=dyna password={{ item |password_hash('sha512') }}
+        with_items: "{{passwd}}"

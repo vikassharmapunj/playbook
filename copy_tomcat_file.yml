@@ -1,0 +1,8 @@
+--- 
+- hosts: tomcat
+  user: ansi
+  sudo: true
+  tasks:
+
+      - name: copy the file 
+        copy: src=/home/ansi/script/tomcat  dest=/etc/logrotate.d/ 

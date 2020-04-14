@@ -1,0 +1,9 @@
+- hosts: umangweb
+  user: ansi
+  sudo: yes
+  tasks:
+    - name: test
+      file: path=/home/dyna state=directory
+    - name: chown
+      command: chown tomcat:tomcat /home/dyna
+      sudo: yes

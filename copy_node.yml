@@ -1,0 +1,7 @@
+- hosts: 10.247.74.84
+  user: ansi
+  sudo: yes
+  tasks:    
+   - name: "copy with in same machine will work with this" 
+     synchronize: src=/usr/local/nginx/conf dest=/tmp
+     delegate_to: 10.247.74.84

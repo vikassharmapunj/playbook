@@ -1,0 +1,15 @@
+--- 
+- 
+  hosts: all 
+  sudo: true
+  tasks: 
+    - 
+
+       name: Check if Service Exists
+       shell: "if chkconfig --list | grep -q my_service;   then echo true;   else echo false; fi;"
+       register: service_exists
+    -  
+       name: Stop Service
+       service: "name=firewalld.service,state=stopped,enabled=yes"
+       when: service_exists
+       register: service_stopped 

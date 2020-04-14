@@ -1,0 +1,7 @@
+- hosts: wso2
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: command help
+     command: "nmon -s 5 -T -F /tmp/nmon_location-of-log-file.nmon"
+     sudo: yes

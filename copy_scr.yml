@@ -1,0 +1,9 @@
+- hosts: all
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: Copy Script
+     copy: src=/home/ansi/wso2gzip.sh dest=/home/ansi/
+   - name: Permission for executable
+     command: chmod +x /home/ansi/wso2gzip.sh
+     sudo: yes

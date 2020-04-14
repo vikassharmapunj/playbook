@@ -1,0 +1,16 @@
+- hosts: 10.247.74.75
+    user: ansi
+    sudo: True
+    vars:
+    vars_files:
+     - users.yml
+    with_items: 
+     - "{{ username }}"
+    user_name: 
+      - "{{ item }}"
+    with_items: 
+      - "{{ username }}"
+    is_admin: 
+      - "{{ admin }}"
+    roles:
+      - { role: userdel ,uusername: "{{ user_name }}", when: action == "delete_user" }

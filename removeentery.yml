@@ -2,10 +2,10 @@
   user: ansi 
   sudo: yes
   tasks:
-   - name: set a text
+   - name: /etc/sysctl.conf
      lineinfile:
        dest: /etc/sysctl.conf
        regexp: "{{ item.regexp }}"
        line: "{{ item.line }}"
      with_items:
-       - { regexp: '^overcommit_memory = 1 ', line: '' }
+       - { regexp: '^overcommit_memory ', ' }

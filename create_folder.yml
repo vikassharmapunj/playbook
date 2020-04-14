@@ -1,0 +1,7 @@
+- hosts: all 
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: create folder
+     file: path=/home/ansi/systembackup mode=755 owner=ansi group=ansi state=directory
+     sudo: yes

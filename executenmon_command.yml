@@ -1,0 +1,7 @@
+- hosts: nmon
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: Gzip content
+     command: sh /home/ansi/nmonscript.sh
+     sudo: yes

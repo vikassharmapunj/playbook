@@ -1,0 +1,8 @@
+---
+- hosts: tomcat
+  user: ansi
+  sudo: true
+  tasks:
+
+      - name: copy the script
+        copy: src=/home/ansi/script/setenv.sh  dest=/home/tomcat/*/bin/

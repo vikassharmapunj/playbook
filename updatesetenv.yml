@@ -1,0 +1,63 @@
+- hosts: 10.247.74.67
+  user: ansi 
+  sudo: yes
+  tasks:
+   - name: set a text
+     lineinfile:
+       dest: /etc/hosts
+       regexp: "{{ item.regexp }}"
+       line: "{{ item.line }}"
+     with_items:
+       - { regexp: '^10.247.74.17(.*)web.umang.gov.in', line: '10.247.74.119            web.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)www.umang.gov.in', line: '10.247.74.119            www.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)app.umang.gov.in', line: '10.247.74.118            app.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)static.umang.gov.in', line: '10.247.74.118         static.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)report.umang.gov.in', line: '10.247.74.119         report.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)reporting.umang.gov.in', line: '10.247.74.118      reporting.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)staging.umang.gov.in', line: '10.247.74.122        staging.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)wso2web.umang.gov.in', line: '10.247.74.118        wso2web.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)logger.umang.gov.in', line: '10.247.74.119 logger.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)dept.umang.gov.in', line: '10.247.74.118   dept.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)core.umang.gov.in', line: '10.247.74.118   core.umang.gov.in' }
+       - { regexp: '^10.247.74.17(.*)notify.umang.gov.in', line: '10.247.74.118   notify.umang.gov.in' }
+
+############DNS Entiries##################
+#10.247.74.17    web.umang.gov.in
+#10.247.74.17    www.umang.gov.in
+#10.247.74.17    static.umang.gov.in
+#10.247.74.17    report.umang.gov.in
+#10.247.74.17    reporting.umang.gov.in
+#10.247.74.17    notify.umang.gov.in
+#10.247.74.17    staging.umang.gov.in
+########### WSO2 internal calling from web         ###########
+#10.247.74.17    wso2web.umang.gov.in
+##
+##10.247.74.17    logger.umang.gov.in
+#10.247.74.17    dept.umang.gov.in
+#10.247.74.17    core.umang.gov.in
+##
+#10.247.74.21    testgraylog.com
+#10.247.74.21    stglog.umang.gov.in
+#10.247.74.18    core.umang.gov.in
+#10.247.74.23    db.pr.umang.internal
+#10.247.74.24    service.pr.umang.internal
+#10.247.74.25    msgbr.pr.umang.internal
+#10.247.74.26    cmgr.pr.umang.internal
+#10.247.74.21    logman.pr.umang.internal
+##
+#10.247.74.18    ws.umang.gov.in
+###########################################
+#10.247.74.16    core.pr.umang.internal
+#10.247.74.19    notification.pr.umang.internal
+#10.247.74.17    app.umang.gov.in
+#10.247.74.50    service1.pr.umang.internal
+#10.247.74.37    service2.pr.umang.internal
+#10.247.74.63    wso21.pr.umang.internal
+#10.247.74.64    wso22.pr.umang.internal
+#10.247.74.35    wso23.pr.umang.internal
+#10.247.74.65    wso24.pr.umang.internal
+#10.247.74.60    static.pr.umang.internal
+#10.247.74.74    db.stg.umang.internal
+#10.247.74.23    db.pr.umang.internal
+#10.247.74.22    db.pr.slave.umang.internal
+#

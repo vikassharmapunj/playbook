@@ -1,0 +1,12 @@
+- hosts: 10.247.74.67
+  user: ansi 
+  sudo: yes
+  tasks:
+   - name: set a text
+     lineinfile:
+       command: visudo
+       regexp: "{{ item.regexp }}"
+       line: "{{ item.line }}"
+     with_items:
+       - { regexp: '^nagios ALL=(ALL)(.*)ALL', line: '#nagios ALL=(ALL)       ALL' }
+       - { regexp: '^nic ALL=(ALL)(.*)ALL', line: '#nic ALL=(ALL)       ALL' }

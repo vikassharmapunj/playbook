@@ -1,0 +1,9 @@
+- hosts: 10.247.74.20 
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: Copy file
+     copy: src=Umang_1.0.0.0_arm_Debug.appxbundle dest=/home/cdn/download/
+   - name: Copy RPM Install
+     copy: src=Umang_v1_0_45.apk dest=/home/cdn/download/
+     sudo: yes

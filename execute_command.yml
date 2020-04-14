@@ -1,0 +1,7 @@
+- hosts: gzip
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: Gzip content
+     command: sh /home/ansi/gzip.sh
+     sudo: yes

@@ -1,0 +1,12 @@
+- hosts: all
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: command
+     shell: uptime
+     #shell: /bin/systemctl stop auditd.service
+     #command: /bin/systemctl status  tomcat.service
+     #shell: /bin/systemctl stop  vsftpd.service
+     sudo: yes
+     register: ps
+   - debug: var=ps.stdout_lines

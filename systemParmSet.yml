@@ -1,0 +1,18 @@
+- hosts: wso2
+  user: ansi 
+  sudo: yes
+  tasks:
+   - name: /etc/security/limits.conf
+     lineinfile:
+       dest: /etc/security/limits.conf
+       regexp: "{{ item.regexp }}"
+       line: "{{ item.line }}"
+     with_items:
+       - { regexp: '^nobody(.*)hard', line: 'nobody     hard    nproc   159002' }
+       - { regexp: '^nobody(.*)soft', line: 'nobody     soft    nproc   150002' }
+       - { regexp: '^tomcat(.*)hard', line: 'tomcat     hard    nproc   159002' }
+       - { regexp: '^wso2(.*)hard', line: 'wso2     hard    nproc   159002' }
+       - { regexp: '^tomcat(.*)soft', line: 'tomcat     soft    nproc   150002' }
+       - { regexp: '^wso2(.*)soft', line: 'wso2     soft    nproc   149002' }
+       - { regexp: '^\*(.*)hard(.*)nofile(.*)$', line: '*  hard    nofile   359009' }
+       - { regexp: '^\*(.*)soft(.*)nofile(.*)$', line: '*  soft    nofile   359009' }

@@ -1,0 +1,9 @@
+- hosts: 10.247.74.99
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: Copy RPM Install
+     copy: src=glances-1.7.7-1.el7.noarch.rpm dest=/home/ansi/
+   - name: Execute RPM
+     command: rpm -ivh /home/ansi/glances-1.7.7-1.el7.noarch.rpm
+     sudo: yes

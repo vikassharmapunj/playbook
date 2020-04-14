@@ -1,0 +1,11 @@
+- hosts: 10.247.74.84
+  user: ansi
+  sudo: yes
+  tasks:
+  - name: Ansible fetch directory example with flat parameter set
+    fetch:
+      src: /usr/local/nginx/conf
+      dest: /home/ansi/
+      mode: 0774
+      flat: yes
+      sudo: yes

@@ -1,0 +1,7 @@
+- hosts: all
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: Gzip content
+     command: tail -1000 /var/log/messages|grep -i "cpu"
+     sudo: yes

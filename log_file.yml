@@ -1,0 +1,7 @@
+- hosts: 10.247.74.24 
+  user: ansi
+  tasks:
+   - name: path
+     command: chdir=/home/application/logs/ProfileEngine/09-02-2017
+   - name: Maximum
+     command: cat info_*.log |grep -i 'DB--'|awk -F " " '{print $3}'|sort -nrk2|head -1 > /tmp/nllddvfile.txt

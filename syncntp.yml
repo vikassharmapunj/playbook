@@ -1,0 +1,21 @@
+- hosts: all
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: yum Install ntp
+     yum: name=ntp state=present
+   - name: change file
+     lineinfile:
+       dest: /etc/ntp.conf
+       regexp: "{{ item.regexp }}"
+       line: "{{ item.line }}"
+     with_items:
+       - { regexp: '^server 0.rhel.pool.ntp.org iburst', line: 'server 164.100.255.1 prefer' }
+       - { regexp: '^server 0.rhel.pool.ntp.org iburst', line: '#' }
+       - { regexp: '^server 0.rhel.pool.ntp.org iburst', line: '#' }
+       - { regexp: '^server 0.rhel.pool.ntp.org iburst', line: '#' }
+   #- name: Stop Service
+   #  service: "name=ntpd.service,state=stopped,enabled=yes"
+
+   #- name: Start Service
+   #  service: "name=ntpd.service state=started enabled=yes" 

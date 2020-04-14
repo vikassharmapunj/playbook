@@ -1,0 +1,7 @@
+- hosts: wso2
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: Gzip content and move content
+     command: sh /home/ansi/wso2gzip.sh
+     sudo: yes

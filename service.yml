@@ -1,0 +1,9 @@
+- hosts: all
+  sudo: yes
+  tasks:
+   - name: Stop Service
+     service: "name=tomcat.service,state=stopped,enabled=yes"
+#     shell: service firewalld status
+#   - name: Start Service
+#     service: "name=httpd.service state=disable enabled=yes"
+     sudo: yes

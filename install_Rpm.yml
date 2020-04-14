@@ -1,0 +1,12 @@
+  #install RPM latest version in all configure host machines
+  
+- hosts: all
+  user: ansi
+  sudo: True
+        tasks:
+        ---
+                - name: Copy RPM Install
+                copy: src=inotify-tools-3.13-1.el6.rf.x86_64.rpm dest=/home/ansi/
+                - name: Execute RPM 
+                command: rpm -ivh inotify-tools-3.13-1.el6.rf.x86_64.rpm
+                sudo: True

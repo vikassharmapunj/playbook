@@ -1,0 +1,7 @@
+- hosts: all
+  user: ansi 
+  sudo: yes
+  tasks:
+   - name: add text to line
+   #  command: sed -i '14i      log_on_success  =' /etc/xinetd.d/nrpe
+     command: /bin/systemctl restart  xinetd.service

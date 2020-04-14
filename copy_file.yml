@@ -1,0 +1,7 @@
+- hosts: tomcat
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: Copy file
+     copy: src=/home/ansi/Regarding_Third_party_audited.sh dest=/home/ansi
+     sudo: yes

@@ -1,0 +1,7 @@
+- hosts: all
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: delete RPM
+     command: rpm -e --nodeps httpd-2.4.6* mod_fcgid-2.3.9* mod_ssl-* mod_wsgi-* httpd-manual-2.4.6*
+     sudo: yes

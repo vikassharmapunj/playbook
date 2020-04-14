@@ -1,0 +1,9 @@
+ 
+- hosts: webserver1
+  user: ec2-user
+  sudo: True
+  tasks:
+        - name: Install Glances 
+          copy: src=/home/spiceapp/python-psutil-2.2.1-1.el7.x86_64.rpm  dest=/home/spiceapp/python-psutil-2.2.1-1.el7.x86_64.rpm
+        - name: Install Tomcat init script
+          copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755       

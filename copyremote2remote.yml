@@ -1,0 +1,5 @@
+- hosts: 10.247.74.42
+  tasks:    
+   - name: Copy Remote-To-Remote (from serverA to serverB)
+     synchronize: src=/usr/local/nginx/conf dest=/home/ansi
+     delegate_to: 10.247.74.42

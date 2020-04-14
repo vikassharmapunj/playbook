@@ -1,0 +1,9 @@
+- hosts: all
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: command
+     yum: name=dos2unix state=latest
+     sudo: yes
+#     register: ps
+#   - debug: var=ps.stdout_lines

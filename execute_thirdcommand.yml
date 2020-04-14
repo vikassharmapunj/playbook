@@ -1,0 +1,7 @@
+- hosts: tomcat
+  user: ansi
+  sudo: yes
+  tasks:
+   - name: execute
+     command: sh /home/ansi/Regarding_Third_party_audited.sh
+     sudo: yes
