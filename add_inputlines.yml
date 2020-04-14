@@ -1,0 +1,13 @@
+- hosts: 10.247.74.90
+  user: ansi 
+  sudo: yes
+  tasks:
+   - name: set b text
+     lineinfile:
+       dest: /home/ansi/b.txt
+       regexp: "{{ item.regexp }}"
+       line: "{{ item.line }}"
+     with_items:
+       - { regexp: '^arun Mobile', line: 'arun convert to vik' }
+       - { regexp: '^Mohit Mobile', line: 'Mohit Mobile = 88' }
+       - { regexp: '^Karan Mobile', line: 'Karan Mobile = 99' }

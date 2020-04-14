@@ -1,0 +1,13 @@
+- hosts: 10.247.74.90
+  user: ansi 
+  sudo: yes
+  tasks:
+   - name: set a text
+     lineinfile:
+       dest: /home/ansi/a.txt
+       regexp: "{{ item.regexp }}"
+       line: "{{ item.line }}"
+     with_items:
+       - { regexp: '^kernel.shmall', line: 'kernel.shmall = 2097152' }
+       - { regexp: '^kernel.shmmax', line: 'kernel.shmmax = 134217728' }
+       - { regexp: '^fs.file-max', line: 'fs.file-max = 65536' }

@@ -1,0 +1,10 @@
+- hosts: api
+  vars:
+    hour: "{{ hour }}"
+
+  sudo: true
+  tasks:
+    - script: /home/ansi/errorcount.sh {{hour}}
+      register: script
+
+    - debug: var=script.stdout_lines  
