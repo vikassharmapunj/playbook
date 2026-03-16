@@ -1,1 +1,3 @@
-/usr/sbin/ofed_uninstall.sh
+for f in $(rpm -qa | grep -i doca ) ; do sudo dnf -y remove $f; done
+rpm -qa | grep -i doca
+rpm -qa | grep -i mlnx
