@@ -1,4 +1,6 @@
-ofed_info -s
-/etc/init.d/openibd restart
-/etc/init.d/openibd status
+Download the firmware for ConnectX-7 400GE 2P NIC:
+https://support.hpe.com/connect/s/softwaredetails?language=en_US&collectionId=MTX-82fd00d58ad54518&tab=releaseNotes&softwareId=MTX_ad05c6690d0f43f98174a8b08e
+
+Download the firmware for ConnectX-7 200GE 2P NIC:
+https://internal.support.hpe.com/connect/s/softwaredetails?language=en_US&collectionId=MTX-a6830ae5a0164a27&tab=releaseNotes&softwareId=MTX_b658bde5e68b4b17ad25a462a8
 
