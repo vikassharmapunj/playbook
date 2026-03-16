@@ -1,19 +1,1 @@
-#Download the doca driver and signature using the following command:
-curl -fL -o "doca-host-2.10.0-093000_25.01_rhel8.10.x86_64.tar.gz" https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p454243663/v263516/doca-host-2.10.0-093000_25.01_rhel8.10.x86_64.tar.gz
-curl -fL -o "doca-host-2.10.0-093000_25.01_rhel8.10.x86_64.tar.gz.sig" https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p454243663/v263516/doca-host-2.10.0-093000_25.01_rhel8.10.x86_64.tar.gz.sig
-mkdir -p /usr/share/keyrings && touch /usr/share/keyrings/hpePublicKey.gpg
-curl https://downloads.linux.hpe.com/SDR/hpePublicKey2048_key1.pub | gpg --dearmor | sudo tee -a /usr/share/keyrings/hpePublicKey.gpg > /dev/null
-gpg --import /usr/share/keyrings/hpePublicKey.gpg
-gpg --verify doca-host-2.10.0-093000_25.01_rhel8.10.x86_64.tar.gz.sig doca-host-2.10.0-093000_25.01_rhel8.10.x86_64.tar.gz  
-tar -zxvf doca-host-2.10.0-093000_25.01_rhel8.10.x86_64.tar.gz 
-cd doca-host-2.10.0-093000_25.01_rhel8.10.x86_64 
-rpm -Uvh doca-host-2.10.0-093000_25.01_rhel810.x86_64.rpm
-sudo dnf clean all
-dnf -y install doca-extra
-dnf -y install doca-extra
-/opt/mellanox/doca/tools/doca-kernel-support
-rpm -ivh /tmp/DOCA.<insert_text_provided_in_output_of_previous_step>
-dnf makecache
-sudo dnf -y install doca-ofed
-reboot
 
