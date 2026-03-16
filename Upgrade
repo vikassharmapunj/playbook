@@ -1,2 +1,2 @@
-
-sudo grubby --set-default=/boot/vmlinuz-${KERNEL_VERSION}.x86_64
+sudo sed -i 's/^GRUB_DEFAULT=.*/GRUB_DEFAULT=saved/' /etc/default/grub 
+grub2-mkconfig -o /boot/grub2/grub.cfg
