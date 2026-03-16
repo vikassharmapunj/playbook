@@ -1,1 +1,4 @@
+ofed_info -s
+/etc/init.d/openibd restart
+/etc/init.d/openibd status
 
