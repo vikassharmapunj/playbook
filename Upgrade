@@ -1,2 +1,1 @@
-sudo sed -i 's/^GRUB_DEFAULT=.*/GRUB_DEFAULT=saved/' /etc/default/grub 
-grub2-mkconfig -o /boot/grub2/grub.cfg
+grub2-editenv list
