@@ -1,9 +1,8 @@
-# Check driver daemonset now has pods
-kubectl get daemonset -n hpecp-gpu-operator nvidia-driver-daemonset
+kubectl get pods -A | grep -iv -e running -e completed
+kubectl get pods -A | grep -E 'CrashLoopBackOff|Error'
 
-# Verify node label changed to true
-kubectl get nodes -l nvidia.com/gpu.present \
-  -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.nvidia\.com/gpu\.deploy\.driver}{"\n"}{end}'
-
-# Confirm driver version (access via driver pod since GPU operator manages drivers)
-kubectl exec -n hpecp-gpu-operator <driver-pod-name> -- nvidia-smi --query-gpu=driver_version --format=csv,noheader
+•	systemctl status LsiSASH
+•	systemctl stop LsiSASH
+•	systemctl disable LsiSASH
+•	systemctl restart minio
+•	systemctl status minio
