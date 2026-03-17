@@ -1,6 +1,28 @@
-Download the firmware for ConnectX-7 400GE 2P NIC:
-https://support.hpe.com/connect/s/softwaredetails?language=en_US&collectionId=MTX-82fd00d58ad54518&tab=releaseNotes&softwareId=MTX_ad05c6690d0f43f98174a8b08e
+# Node label shows pre-installed drivers
+kubectl describe node scs05 | grep nvidia.com/gpu.deploy.driver
+nvidia.com/gpu.deploy.driver=pre-installed
 
-Download the firmware for ConnectX-7 200GE 2P NIC:
-https://internal.support.hpe.com/connect/s/softwaredetails?language=en_US&collectionId=MTX-a6830ae5a0164a27&tab=releaseNotes&softwareId=MTX_b658bde5e68b4b17ad25a462a8
+# ClusterPolicy expects GPU operator to manage drivers
+kubectl get clusterpolicies.nvidia.com cluster-policy -o jsonpath='{.spec.driver.enabled}'
+true
+
+# Driver daemonset has 0 pods (correct for pre-installed, but validation fails)
+kubectl get daemonset -n hpecp-gpu-operator nvidia-driver-daemonset
+NAME                      DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE
+nvidia-driver-daemonset   0         0         0       0            0
+
+# Current driver version from pre-installed OS
+# Note: This only works when drivers are pre-installed on the host
+# After GPU operator manages drivers, use: kubectl exec -n hpecp-gpu-operator <driver-pod> -- nvidia-smi
+nvidia-smi --query-gpu=driver_version --format=csv,noheader
+580.82.07
+
+# ClusterPolicy configured for older version
+kubectl get clusterpolicies.nvidia.com cluster-policy -o jsonpath='{.spec.driver.version}'
+570.148.08
+
+
+sudo /usr/bin/nvidia-uninstal
+reboot
+
 
