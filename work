@@ -1,3 +1,5 @@
+https://support.hpe.com/hpesc/public/docDisplay?docId=sd00006755en_us&page=GUID-458E2ADC-9F5A-4AEA-A5D1-916B57A7ACDD.html#GUID-458E2ADC-9F5A-4AEA-A5D1-916B57A7ACDD__SECTION_GHF_JJ2_3FC
+
 kubectl get pods -A | grep -iv -e running -e completed
 kubectl get pods -A | grep -E 'CrashLoopBackOff|Error'
 
