@@ -1,5 +1,11 @@
-https://support.hpe.com/hpesc/public/docDisplay?docId=sd00006755en_us&page=GUID-458E2ADC-9F5A-4AEA-A5D1-916B57A7ACDD.html#GUID-458E2ADC-9F5A-4AEA-A5D1-916B57A7ACDD__SECTION_GHF_JJ2_3FC
-
+14	Registration + upgrade	https://subscription.rhn.redhat.com	443/tcp	Egress	Worker node Management IP
+https://subscription.rhsm.redhat.com	443/tcp	Egress	Worker node Management IP
+https://cdn.redhat.com	443/tcp	Egress	Worker node Management IP
+https://solutionhub-metadata.s3.us-east-1.amazonaws.com	443/tcp	Egress	Worker node IP and EZ fab
+https://gl-vas-harbor-prod-images.s3.us-west-2.amazonaws.com/	443/tcp	Egress	Worker node IP and EZ fab
+15	Ezmeral	https://mirrors.fedoraproject.org	443/tcp	Egress	EZ fab
+16	Enable preloaded examples in Airflow	https://github.com/HPEEzmeral	443/tcp	Egress	EZ fab and worker node IP
+17	Enable the installation of python libraries not present in the existing images.	https://pypi.org/	443/tcp	Egress	EZ fab and worker node IP
 kubectl get pods -A | grep -iv -e running -e completed
 kubectl get pods -A | grep -E 'CrashLoopBackOff|Error'
 
