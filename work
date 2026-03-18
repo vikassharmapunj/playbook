@@ -1,3 +1,11 @@
+14	Registration + upgrade	https://subscription.rhn.redhat.com	443/tcp	Egress	Worker node Management IP
+https://subscription.rhsm.redhat.com	443/tcp	Egress	Worker node Management IP
+https://cdn.redhat.com	443/tcp	Egress	Worker node Management IP
+https://solutionhub-metadata.s3.us-east-1.amazonaws.com	443/tcp	Egress	Worker node IP and EZ fab
+https://gl-vas-harbor-prod-images.s3.us-west-2.amazonaws.com/	443/tcp	Egress	Worker node IP and EZ fab
+15	Ezmeral	https://mirrors.fedoraproject.org	443/tcp	Egress	EZ fab
+16	Enable preloaded examples in Airflow	https://github.com/HPEEzmeral	443/tcp	Egress	EZ fab and worker node IP
+17	Enable the installation of python libraries not present in the existing images.	https://pypi.org/	443/tcp	Egress	EZ fab and worker node IP
 
 bash <(curl -sL "https://github.com/raviteja-panugundla/pcai-automation/raw/main/firewall-pcai-dns.sh")
 bash <(curl -s -H "Accept: application/vnd.github.raw" https://api.github.com/repos/raviteja-panugundla/pcai-automation/contents/firewall-pcai-dns.sh)
