@@ -30,3 +30,37 @@ sudo reboot
 # sudo service containerd start
 # sudo service kubelet start
 
+export OP_ID=op-id    # Set this to the ezclustersvcs op-id / pcbe correlation-id
+export OP=pre-stage   # Set this to the previous operation that was stuck, one of - pre-check, pre-stage, orchestrator-upgrade
+export EXIT_CODE=1    # Set to 0 to mark the op as succeeded, 1 to mark op as failed
+
+cat << EOF | kubectl apply -f -
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clear-op
+  namespace: ezkf-mgmt
+  labels:
+    hpe-ezfab/category: upgrade
+    hpe-ezfab/component: $OP
+    hpe-ezfab/cluster-type: orchestrator
+    hpe-ezfab/op-id: $OP_ID
+spec:
+  ttlSecondsAfterFinished: 10
+  backoffLimit: 1
+  template:
+    metadata:
+      labels:
+        hpe-ezfab/category: upgrade
+        hpe-ezfab/component: $OP
+        hpe-ezfab/cluster-type: orchestrator
+        hpe-ezfab/op-id: $OP_ID
+    spec:
+      serviceAccountName: ezfab-registry-manager
+      restartPolicy: Never
+      containers:
+      - name: main
+        image: localhost:5000/ezmeral-common/ezkf/ezregtool:v1.2.3
+        command: ["bash", "-c", "echo 'Job exiting with code $EXIT_CODE'; exit $EXIT_CODE"]
+EOF
+
