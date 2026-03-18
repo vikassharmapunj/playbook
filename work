@@ -64,3 +64,4 @@ spec:
         command: ["bash", "-c", "echo 'Job exiting with code $EXIT_CODE'; exit $EXIT_CODE"]
 EOF
 
+kubectl patch ezfabriccluster -n <cluster-name> <cluster-name> --type merge -p '{"spec":{"retryId":"<generate-a-random-uuid4>"}}'
