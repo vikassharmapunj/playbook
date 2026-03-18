@@ -1,3 +1,7 @@
+
+
+bash <(curl -s -H "Accept: application/vnd.github.raw" https://api.github.com/repos/raviteja-panugundla/pcai-automation/contents/firewall-pcai-dns.sh)
+
 kubectl get pods -A | grep -iv -e running -e completed
 kubectl get pods -A | grep -E 'CrashLoopBackOff|Error'
 
